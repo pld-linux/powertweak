@@ -4,8 +4,9 @@ Name:		powertweak
 Version:	0.99.0
 Release:	1
 License:	GPL
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 URL:		http://powertweak.sourceforge.net/
 Vendor:		Dave Jones <dave@powertweak.com>
 Source0:	http://download.sourceforge.net/powertweak/%{name}-%{version}.tar.bz2
@@ -32,10 +33,9 @@ on dostrajaæ wiele czê¶ci systemu jak np. urz±dzenia PCI, CPU itd.
 %setup -q
 
 %build
-CPPFLAGS="$RPM_OPT_FLAGS -fno-rtti -fno-exceptions -I/usr/include/ncurses"
-CXXFLAGS="$RPM_OPT_FLAGS -fno-rtti -fno-exceptions -I/usr/include/ncurses"
-CFLAGS="$RPM_OPT_FLAGS -I/usr/include/ncurses"
-export CFLAGS CXXFLAGS CPPFLAGS
+CPPFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions -I%{_includedir}/ncurses"
+CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions -I%{_includedir}/ncurses"
+CFLAGS="%{rpmcflags} -I%{_includedir}/ncurses"
 %configure
 %{__make}
 
@@ -46,8 +46,7 @@ install -d $RPM_BUILD_ROOT/var/log/powertweak
 
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man8/* \
-	ChangeLog README Release-notes Documentation/*
+gzip -9nf ChangeLog README Release-notes Documentation/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -57,6 +56,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc {ChangeLog,README,Release-notes,Documentation/*}.gz
 %attr(755,root,root) %{_sbindir}/powertweak
 %attr(755,root,root) %{_sbindir}/powertweak-config
-%{_mandir}/man8/powertweak.8.gz
+%{_mandir}/man8/powertweak.8*
 %{_datadir}/powertweak
 /var/log/powertweak
