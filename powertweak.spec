@@ -38,7 +38,7 @@ on dostrajaæ wiele czê¶ci systemu jak np. urz±dzenia PCI, CPU itd.
 Summary:	GTK GUI for Powertweak
 Summary(pl):	Oparty na GTK interfejs do Powertweak
 Group:		X11/Applications
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description gtk
 GTK-based GUI for Powertweak.
