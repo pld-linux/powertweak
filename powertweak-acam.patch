@@ -422,21 +422,21 @@ diff -Nur powertweak.orig/src/backends/Elevator/Makefile.am powertweak/src/backe
  
  libelevatortweaks_la_SOURCES = \
  	elevatortweaks.c elevator.h
-diff -Nur powertweak.orig/src/backends/PCI/Makefile.am powertweak/src/backends/PCI/Makefile.am
---- powertweak.orig/src/backends/PCI/Makefile.am	Tue Oct  2 17:04:13 2001
-+++ powertweak/src/backends/PCI/Makefile.am	Thu Aug  8 20:26:03 2002
+diff -Nur powertweak-0.99.5.orig/src/backends/PCI/Makefile.am powertweak-0.99.5/src/backends/PCI/Makefile.am
+--- powertweak-0.99.5.orig/src/backends/PCI/Makefile.am	Tue Oct  2 17:04:13 2001
++++ powertweak-0.99.5/src/backends/PCI/Makefile.am	Thu Aug  8 20:26:03 2002
 @@ -5,9 +5,9 @@
- CFLAGS += @XML_CFLAGS@ -DPT_DATADIR=\"@PT_DATADIR@\" 
+ CFLAGS += @XML_CFLAGS@ -DPT_DATADIR=\"@PT_DATADIR@\" @XML_CFLAGS_MOVED@
  LDFLAGS =  -no-undefined
  
 -libexecdir = $(libdir)/powertweak/plugins
 +plugindir = $(libdir)/powertweak/plugins
  
--libexec_LTLIBRARIES = libpcitweaks.la
-+plugin_LTLIBRARIES = libpcitweaks.la
+-libexec_LTLIBRARIES = libpciinfo.la libpcilatency.la libpcixml.la 
++plugin_LTLIBRARIES = libpciinfo.la libpcilatency.la libpcixml.la
  
- libpcitweaks_la_SOURCES = \
- 		info-page.c \
+ libpciinfo_la_SOURCES = \
+ 		pci.c \
 diff -Nur powertweak.orig/src/backends/hdparm/Makefile.am powertweak/src/backends/hdparm/Makefile.am
 --- powertweak.orig/src/backends/hdparm/Makefile.am	Tue Oct  2 17:04:14 2001
 +++ powertweak/src/backends/hdparm/Makefile.am	Thu Aug  8 20:26:18 2002
@@ -453,12 +453,12 @@ diff -Nur powertweak.orig/src/backends/hdparm/Makefile.am powertweak/src/backend
  
  libhdparmtweaks_la_SOURCES = \
  	smart.c atacmds.c \
-diff -Nur powertweak.orig/src/backends/proc/Makefile.am powertweak/src/backends/proc/Makefile.am
---- powertweak.orig/src/backends/proc/Makefile.am	Tue Oct  2 17:04:13 2001
-+++ powertweak/src/backends/proc/Makefile.am	Thu Aug  8 20:26:29 2002
+diff -Nur powertweak-0.99.5.orig/src/backends/proc/Makefile.am powertweak-0.99.5/src/backends/proc/Makefile.am
+--- powertweak-0.99.5.orig/src/backends/proc/Makefile.am	Tue Oct  2 17:04:13 2001
++++ powertweak-0.99.5/src/backends/proc/Makefile.am	Thu Aug  8 20:26:29 2002
 @@ -3,9 +3,9 @@
  
- CFLAGS += @XML_CFLAGS@ -DPT_DATADIR=\"@PT_DATADIR@\"
+ CFLAGS += @XML_CFLAGS@ -DPT_DATADIR=\"@PT_DATADIR@\" @XML_CFLAGS_MOVED@
  
 -libexecdir = $(libdir)/powertweak/plugins
 +plugindir = $(libdir)/powertweak/plugins
@@ -468,13 +468,6 @@ diff -Nur powertweak.orig/src/backends/proc/Makefile.am powertweak/src/backends/
  
  libproctweaks_la_SOURCES = \
  		proctweaks.c \
-@@ -13,4 +13,4 @@
- 		proc.c	\
- 		methods.c
- 
-- 
-\ No newline at end of file
-+ 
 diff -Nur powertweak.orig/src/backends/proc/misc/Makefile.am powertweak/src/backends/proc/misc/Makefile.am
 --- powertweak.orig/src/backends/proc/misc/Makefile.am	Tue Oct  2 17:04:13 2001
 +++ powertweak/src/backends/proc/misc/Makefile.am	Thu Aug  8 20:26:51 2002
@@ -515,3 +508,29 @@ diff -Nur powertweak.orig/src/backends/sonypi/Makefile.am powertweak/src/backend
 -	powertweak.h	stamp-h 		stamp-h.in	values.h
 +	powertweak.h	values.h
  
+--- powertweak-0.99.5/src/backends/DMI/Makefile.am.orig	2003-05-25 15:31:56.000000000 +0200
++++ powertweak-0.99.5/src/backends/DMI/Makefile.am	2003-07-12 17:05:44.000000000 +0200
+@@ -1,10 +1,10 @@
+ INCLUDES =
+ 
+-libexecdir = $(libdir)/powertweak/plugins
++plugindir = $(libdir)/powertweak/plugins
+ 
+ CFLAGS += -pedantic 
+ 
+-libexec_LTLIBRARIES = libdmitweaks.la
++plugin_LTLIBRARIES = libdmitweaks.la
+ 
+ libdmitweaks_la_SOURCES = \
+ 	dmitweaks.c \
+--- powertweak-0.99.5/src/backends/core/PCILIB/Makefile.am.orig	2001-10-06 18:10:37.000000000 +0200
++++ powertweak-0.99.5/src/backends/core/PCILIB/Makefile.am	2003-07-12 17:06:34.000000000 +0200
+@@ -1,6 +1,6 @@
+-libexecdir = $(libdir)/powertweak/plugins/core
++plugindir = $(libdir)/powertweak/plugins/core
+ 
+-libexec_LTLIBRARIES = libpcilib.la
++plugin_LTLIBRARIES = libpcilib.la
+ 
+ libpcilib_la_SOURCES = \
+ 	proc.c common.c access.c names.c filter.c generic.c \
