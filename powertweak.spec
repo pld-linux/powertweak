@@ -1,21 +1,23 @@
-Summary:	Powertweak - Tune system to optimal performance.
+Summary:	Powertweak - Tune system to optimal performance
 Name:		powertweak
 Version:	0.1.6
 Release:	1
 License:	GPL
-Group:		Applications/System
+Group:		Utilities/System
+Group(pl):	Narzêdzia/System
 URL:		http://linux.powertweak.com
 Vendor:		Dave Jones <dave@powertweak.com>
-Source:		%{name}-%{version}.tar.bz2
+Source0:	%{name}-%{version}.tar.bz2
 Patch0:		powertweak-DESTDIR.patch
 Patch1:		powertweak-glibc.patch
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Powertweak is a utility for tweaking your Linux system to peak performance.
-It can tune many parts of your system. Tunes PCI devices to use optimal
-settings. Enables performance enhancing features of the CPU(s).
+Powertweak is a utility for tweaking your Linux system to peak
+performance. It can tune many parts of your system. Tunes PCI devices
+to use optimal settings. Enables performance enhancing features of the
+CPU(s).
 
 %prep
 %setup -q
