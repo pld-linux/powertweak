@@ -5,8 +5,6 @@ Version:	0.99.0
 Release:	1
 License:	GPL
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 URL:		http://powertweak.sourceforge.net/
 Vendor:		Dave Jones <dave@powertweak.com>
 Source0:	http://download.sourceforge.net/powertweak/%{name}-%{version}.tar.bz2
