@@ -36,7 +36,7 @@ on dostrajaæ wiele czê¶ci systemu jak np. urz±dzenia PCI, CPU itd.
 CPPFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions -I%{_includedir}/ncurses"
 CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions -I%{_includedir}/ncurses"
 CFLAGS="%{rpmcflags} -I%{_includedir}/ncurses"
-%configure
+%configure2_13
 %{__make}
 
 %install
