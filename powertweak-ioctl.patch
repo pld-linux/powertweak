@@ -1,0 +1,10 @@
+--- powertweak-0.99.5/src/backends/Elevator/elevator.h.orig	2001-08-25 21:25:41.000000000 +0200
++++ powertweak-0.99.5/src/backends/Elevator/elevator.h	2004-04-12 15:33:15.675292808 +0200
+@@ -32,5 +32,5 @@
+ 	int max_bomb_segments;
+ } blkelv_ioctl_arg_t;
+ 
+-#define BLKELVGET   _IOR(0x12,106,sizeof(blkelv_ioctl_arg_t))
+-#define BLKELVSET   _IOW(0x12,107,sizeof(blkelv_ioctl_arg_t))
++#define BLKELVGET   _IOR(0x12,106,size_t)
++#define BLKELVSET   _IOW(0x12,107,size_t)
