@@ -48,7 +48,7 @@ CPPFLAGS="-I/usr/include/libxml2/libxml"
 # ncurses must be here, not in CPPFLAGS
 # (menu.h conflict - tvision/include dir must be before ncurses)
 CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions -I/usr/include/ncurses"
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure
