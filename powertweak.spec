@@ -37,16 +37,16 @@ Powertweak to narzêdzie do optymalizacji Twojego systemu Linux. Mo¿e
 on dostrajaæ wiele czê¶ci systemu jak np. urz±dzenia PCI, CPU itd.
 
 %package gtk
-Summary:	GTK GUI for Powertweak
-Summary(pl):	Oparty na GTK interfejs do Powertweak
+Summary:	GTK+ GUI for Powertweak
+Summary(pl):	Oparty na GTK+ interfejs do Powertweak
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 
 %description gtk
-GTK-based GUI for Powertweak.
+GTK+-based GUI for Powertweak.
 
 %description gtk -l pl
-Oparty na GTK graficzny interfejs do narzêdzia Powertweak.
+Oparty na GTK+ graficzny interfejs do narzêdzia Powertweak.
 
 %prep
 %setup -q
