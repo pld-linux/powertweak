@@ -12,6 +12,8 @@ Patch0:		%{name}-opt.patch
 Patch1:		%{name}-acam.patch
 Patch2:		%{name}-fix.patch
 Patch3:		%{name}-morecpu.patch
+Patch4:		%{name}-linux26.patch
+Patch5:		%{name}-ioctl.patch
 URL:		http://powertweak.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -52,6 +54,8 @@ Oparty na GTK graficzny interfejs do narzêdzia Powertweak.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
+%patch5 -p1
 
 %build
 # disabled - tvision client is disabled in 0.99.5
@@ -75,6 +79,8 @@ install -d $RPM_BUILD_ROOT%{_mandir}/man8
 install src/daemon/powertweakd.8 $RPM_BUILD_ROOT%{_mandir}/man8
 install distro/debian/powertweak-gtk.8x $RPM_BUILD_ROOT%{_mandir}/man8/gpowertweak.8x
 #install distro/debian/powertweak-text.8 $RPM_BUILD_ROOT%{_mandir}/man8/powertweak.8
+
+rm -f $RPM_BUILD_ROOT%{_libdir}/powertweak/plugins{,/core}/*.{la,a}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
