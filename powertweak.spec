@@ -1,16 +1,21 @@
 Summary:	Powertweak - Tune system to optimal performance
+Summary(pl):	Narzêdzie do optymalizacji wydajno¶ci systemu
 Name:		powertweak
-Version:	0.1.6
+Version:	0.99.0
 Release:	1
 License:	GPL
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
-URL:		http://linux.powertweak.com
+URL:		http://powertweak.sourceforge.net/
 Vendor:		Dave Jones <dave@powertweak.com>
-Source0:	%{name}-%{version}.tar.bz2
-Patch0:		powertweak-DESTDIR.patch
-Patch1:		powertweak-glibc.patch
+Source0:	http://download.sourceforge.net/powertweak/%{name}-%{version}.tar.bz2
 ExclusiveArch:	%{ix86}
+BuildRequires:	libxml-devel >= 1.8.8
+BuildRequires:	gtk+-devel >= 1.2.0
+BuildRequires:	ncurses-devel
+BuildRequires:	gpm-devel
+BuildRequires:	pciutils
+BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -19,17 +24,20 @@ performance. It can tune many parts of your system. Tunes PCI devices
 to use optimal settings. Enables performance enhancing features of the
 CPU(s).
 
+%description -l pl
+Powertweak to narzêdzie do optymalizacji Twojego systemu Linux. Mo¿e
+on dostrajaæ wiele czê¶ci systemu jak np. urz±dzenia PCI, CPU itd.
+
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
 
 %build
-cd lib
-%configure %{version}
-cd ..
-
-%{__make} OPT="$RPM_OPT_FLAGS"
+CPPFLAGS="$RPM_OPT_FLAGS -fno-rtti -fno-exceptions -I/usr/include/ncurses"
+CXXFLAGS="$RPM_OPT_FLAGS -fno-rtti -fno-exceptions -I/usr/include/ncurses"
+CFLAGS="$RPM_OPT_FLAGS -I/usr/include/ncurses"
+export CFLAGS CXXFLAGS CPPFLAGS
+%configure
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -37,8 +45,6 @@ install -d $RPM_BUILD_ROOT{%{_sbindir},%{_mandir}/man8,%{_datadir}}
 install -d $RPM_BUILD_ROOT/var/log/powertweak
 
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
-
-strip --strip-unneeded $RPM_BUILD_ROOT%{_sbindir}/*
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man8/* \
 	ChangeLog README Release-notes Documentation/*
