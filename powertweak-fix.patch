@@ -1,0 +1,39 @@
+--- powertweak/src/backends/CPU/x86/cputweaks.c.orig	Tue Oct  2 17:04:12 2001
++++ powertweak/src/backends/CPU/x86/cputweaks.c	Thu Aug  8 21:51:36 2002
+@@ -73,13 +73,12 @@
+ 		return;
+ 	}
+ 
+-	tmpstr = malloc (strlen (id->CPUName) + strlen (TXT));
++	tmpstr = malloc (strlen (id->CPUName) + strlen (TXT) + 1);
+ 	if (tmpstr==NULL) {
+ 		printf ("Boom, couldn't malloc %d bytes.\n",
+-			(strlen (id->CPUName) + strlen (TXT)));
++			(strlen (id->CPUName) + strlen (TXT) + 1));
+ 		return;
+ 	}
+-	memset (tmpstr, 0, (strlen (id->CPUName) + strlen (TXT)));
+ 	sprintf (tmpstr, "%s%s", id->CPUName, TXT);
+ 	free (id->CPUName);
+ 	id->CPUName = tmpstr;
+--- powertweak/src/backends/CPU/x86/identify-AMD.c.orig	Tue Oct  2 17:04:12 2001
++++ powertweak/src/backends/CPU/x86/identify-AMD.c	Thu Aug  8 22:17:09 2002
+@@ -15,7 +15,7 @@
+ void identify_AMD(struct cpu_identity *id)
+ {
+ 	unsigned long eax, ebx, ecx, edx;
+-	char BrandName[48];
++	char BrandName[49];
+ 
+ 	cpuid (id->CPU_number, 1, &eax, &ebx, &ecx, &edx);
+ 
+@@ -127,6 +127,8 @@
+ 	memcpy (BrandName+36, &ebx, 4);
+ 	memcpy (BrandName+40, &ecx, 4);
+ 	memcpy (BrandName+44, &edx, 4);
++	BrandName[48]=0;
+ 
+-	id->CPUName = strdup (BrandName);
++	append_to_CPU_name(id," - ");
++	append_to_CPU_name(id,BrandName);
+ }

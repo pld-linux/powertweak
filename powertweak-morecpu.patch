@@ -1,0 +1,38 @@
+--- powertweak/src/backends/CPU/x86/info-page.c.orig	Tue Oct  2 17:04:12 2001
++++ powertweak/src/backends/CPU/x86/info-page.c	Sun Aug 11 12:10:30 2002
+@@ -45,18 +45,18 @@
+ 	  "(16) - Reserved.",
+ 	  "(pse36) 36 bit Page Size Extensions.",
+ 	  "(psn) 96 bit Processor Serial Number",
+-	  "(19) - Reserved.",
++	  "(clflush) CLFLUSH instruction.",
+ 	  "(20) - Reserved.",
+-	  "(21) - Reserved.",
+-	  "(22) - Reserved.",
++	  "(dts) Debug Trace Store.",
++	  "(acpi) ACPI via MSR.",
+ 	  "(mmx) MMX technology",
+ 	  "(24) - Reserved.",
+-	  "(kni/xmm) Streaming SIMD instructions.",
+-	  "(26) - Reserved.",
+-	  "(27) - Reserved.",
+-	  "(28) - Reserved.",
+-	  "(29) - Reserved.",
+-	  "(30) - Reserved.",
++	  "(sse) Streaming SIMD Extension instructions.",
++	  "(sse2) Streaming SIMD Extension-2 instructions.",
++	  "(ss) CPU self snoop.",
++	  "(ht) Hyper-Threading.",
++	  "(tm) Automatic clock control.",
++	  "(ia64) IA64 processor.",
+ 	  "(31) - Reserved."
+ 	};
+ 
+@@ -78,6 +78,7 @@
+ 				x86_cap_flags[16] = "(pat) Page Attribute Table";
+ 			x86_cap_flags[22] = "(mmxext)";
+ 			x86_cap_flags[24] = "(fxsr)";
++			x86_cap_flags[29] = "(lm) x86-64 Long Mode";
+ 			x86_cap_flags[30] = "(3dnowext) Extended 3dNow! instructions.";
+ 			x86_cap_flags[31] = "(3dnow) 3dNow! instructions.";
+ 			cpuid (id->CPU_number, 0x80000001, &eax, &ebx, &ecx, &edx);
