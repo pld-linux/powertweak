@@ -6,7 +6,7 @@ Release:	1
 License:	GPL
 Group:		Applications/System
 Vendor:		Dave Jones <dave@powertweak.com>
-Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/powertweak/%{name}-%{version}.tar.bz2
+Source0:	http://dl.sourceforge.net/powertweak/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-acam.patch
 Patch2:		%{name}-fix.patch
