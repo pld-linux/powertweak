@@ -29,14 +29,14 @@ cd lib
 %configure %{version}
 cd ..
 
-make OPT="$RPM_OPT_FLAGS"
+%{__make} OPT="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sbindir},%{_mandir}/man8,%{_datadir}}
 install -d $RPM_BUILD_ROOT/var/log/powertweak
 
-make DESTDIR=$RPM_BUILD_ROOT install
+%{__make} DESTDIR=$RPM_BUILD_ROOT install
 
 strip --strip-unneeded $RPM_BUILD_ROOT%{_sbindir}/*
 
