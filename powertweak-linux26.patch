@@ -1,0 +1,28 @@
+--- powertweak-0.99.5/src/backends/CPU/x86/mtrr.c.orig	2001-10-19 05:14:36.000000000 +0200
++++ powertweak-0.99.5/src/backends/CPU/x86/mtrr.c	2004-04-12 15:24:45.978778456 +0200
+@@ -14,7 +14,6 @@
+ #include <fcntl.h>
+ #include <sys/ioctl.h>
+ #include <errno.h>
+-#define MTRR_NEED_STRINGS
+ #include <asm/mtrr.h>
+ #include <powertweak.h>
+ #include <x86.h>
+@@ -22,6 +21,17 @@
+ 
+ #define ERRSTRING strerror (errno)
+ 
++static char *mtrr_strings[MTRR_NUM_TYPES] =
++{
++    "uncachable",               /* 0 */
++    "write-combining",          /* 1 */
++    "?",                        /* 2 */
++    "?",                        /* 3 */
++    "write-through",            /* 4 */
++    "write-protect",            /* 5 */
++    "write-back",               /* 6 */
++};
++
+ void ShowMTRRInfo (struct cpu_identity *id)
+ {
+ 	int fd;
