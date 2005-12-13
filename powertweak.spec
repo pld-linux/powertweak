@@ -17,12 +17,12 @@ Patch5:		%{name}-ioctl.patch
 URL:		http://powertweak.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+-devel >= 1.2.0
 #BuildRequires:	gpm-devel
-#BuildRequires:	ncurses-devel
+BuildRequires:	gtk+-devel >= 1.2.0
 #BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.1.0
+#BuildRequires:	ncurses-devel
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -90,8 +90,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README TODO Documentation/*
 %attr(755,root,root) %{_sbindir}/powertweakd
 %attr(755,root,root) %{_bindir}/lspowertweak
-%dir /etc/powertweak
-%config(noreplace) %verify(not size mtime md5) /etc/powertweak/tweaks
+%dir %{_sysconfdir}/powertweak
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/powertweak/tweaks
 %{_datadir}/powertweak
 %dir %{_libdir}/powertweak
 %dir %{_libdir}/powertweak/plugins
