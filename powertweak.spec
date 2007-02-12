@@ -1,5 +1,5 @@
 Summary:	Powertweak - Tune system to optimal performance
-Summary(pl):	Narzêdzie do optymalizacji wydajno¶ci systemu
+Summary(pl.UTF-8):   NarzÄ™dzie do optymalizacji wydajnoÅ›ci systemu
 Name:		powertweak
 Version:	0.99.5
 Release:	1
@@ -32,21 +32,21 @@ performance. It can tune many parts of your system. Tunes PCI devices
 to use optimal settings. Enables performance enhancing features of the
 CPU(s).
 
-%description -l pl
-Powertweak to narzêdzie do optymalizacji Twojego systemu Linux. Mo¿e
-on dostrajaæ wiele czê¶ci systemu jak np. urz±dzenia PCI, CPU itd.
+%description -l pl.UTF-8
+Powertweak to narzÄ™dzie do optymalizacji Twojego systemu Linux. MoÅ¼e
+on dostrajaÄ‡ wiele czÄ™Å›ci systemu jak np. urzÄ…dzenia PCI, CPU itd.
 
 %package gtk
 Summary:	GTK+ GUI for Powertweak
-Summary(pl):	Oparty na GTK+ interfejs do Powertweak
+Summary(pl.UTF-8):   Oparty na GTK+ interfejs do Powertweak
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 
 %description gtk
 GTK+-based GUI for Powertweak.
 
-%description gtk -l pl
-Oparty na GTK+ graficzny interfejs do narzêdzia Powertweak.
+%description gtk -l pl.UTF-8
+Oparty na GTK+ graficzny interfejs do narzÄ™dzia Powertweak.
 
 %prep
 %setup -q
