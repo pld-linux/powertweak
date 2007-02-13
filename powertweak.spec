@@ -1,5 +1,5 @@
 Summary:	Powertweak - Tune system to optimal performance
-Summary(pl.UTF-8):   Narzędzie do optymalizacji wydajności systemu
+Summary(pl.UTF-8):	Narzędzie do optymalizacji wydajności systemu
 Name:		powertweak
 Version:	0.99.5
 Release:	1
@@ -38,7 +38,7 @@ on dostrajać wiele części systemu jak np. urządzenia PCI, CPU itd.
 
 %package gtk
 Summary:	GTK+ GUI for Powertweak
-Summary(pl.UTF-8):   Oparty na GTK+ interfejs do Powertweak
+Summary(pl.UTF-8):	Oparty na GTK+ interfejs do Powertweak
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 
